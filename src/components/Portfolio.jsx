@@ -45,7 +45,7 @@ export default function Portfolio() {
                 border: "1px solid rgba(255,255,255,0.03)",
                 backgroundColor: "#2b2b2b"
               }}
-              className="group-hover:scale-105 transition-transform duration-300"
+              className="group-hover:scale-110 transition-transform duration-500 ease-out"
               onError={(e) => {
                 // fallback to a working placeholder so tiles never stay black
                 e.currentTarget.onerror = null;

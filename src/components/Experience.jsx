@@ -49,20 +49,19 @@ export default function Experience() {
 
         <div className="space-y-12">
           {items.map((it, idx) => (
-            <div key={it.id} className="relative md:pl-28 pl-4" style={{ animation: `fadeInUp 0.6s ease-out ${(idx + 1) * 0.15}s forwards`, opacity: 0 }}>
-              {/* year tag */}
-              <div className="absolute -left-2 md:left-6 top-0">
+            <div key={it.id} className="relative" style={{ animation: `fadeInUp 0.6s ease-out ${(idx + 1) * 0.15}s forwards`, opacity: 0 }}>
+              {/* year tag - mobile on top, desktop on left */}
+              <div className="mb-2 md:absolute md:mb-0 md:-left-2 md:top-0">
                 <div className="flex items-center gap-3">
-                  <div className="bg-gray-700 text-gray-200 px-3 py-1 rounded text-sm">{it.year}</div>
-                  {/* small golden dot */}
-                  {/* <div className="w-3 h-3 rounded-full shadow-md" /> */}
+                  <div className="bg-yellow-500 text-gray-900 px-3 py-1 rounded text-xs font-semibold">{it.year}</div>
                 </div>
               </div>
 
-              <div className="bg-transparent">
-                <h3 className="text-xl font-semibold text-gray-100">{it.title}</h3>
-                <div className="text-sm text-gray-300 mb-3">{it.company}</div>
-                <p className="text-gray-400 leading-relaxed max-w-3xl">{it.body}</p>
+              {/* content - mobile no left padding, desktop with left padding */}
+              <div className="bg-transparent md:pl-24">
+                <h3 className="text-lg md:text-xl font-semibold text-gray-100">{it.title}</h3>
+                <div className="text-sm text-gray-400 mb-2">{it.company}</div>
+                <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-3xl">{it.body}</p>
               </div>
             </div>
           ))}

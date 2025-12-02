@@ -19,17 +19,17 @@ export default function Hero() {
     <section className="hero-wrap grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-12">
       {/* LEFT content */}
       <div className="pr-6 md:pr-12">
-        <p className="text-sm text-gray-400 mb-4 animate-fade-in-up" style={{ animation: "fadeInUp 0.6s ease-out forwards" }}>I'M</p>
-        <h1 className="text-5xl md:text-6xl font-display font-bold leading-tight animate-fade-in-up" style={{ animation: "fadeInUp 0.6s ease-out 0.1s forwards", opacity: 0 }}>
+        <p className="text-sm text-gray-400 mb-4" style={{ animation: "fadeInUp 0.6s ease-out forwards" }}>I'M</p>
+        <h1 className="text-5xl md:text-6xl font-display font-bold leading-tight" style={{ animation: "fadeInUp 0.6s ease-out 0.1s forwards", opacity: 0 }}>
           <span className="text-gray-300">Babalesh </span>
           <span className="text-yellow-400">Kumar</span>
         </h1>
 
-        <p className="mt-4 text-gray-300 max-w-xl animate-fade-in-up" style={{ animation: "fadeInUp 0.6s ease-out 0.2s forwards", opacity: 0 }}>
+        <p className="mt-4 text-gray-300 max-w-xl" style={{ animation: "fadeInUp 0.6s ease-out 0.2s forwards", opacity: 0 }}>
           M.Tech in Aerodynamics & Propulsion | Python Developer | TechLead at HCLTech
         </p>
 
-        <div className="mt-8 animate-fade-in-up" style={{ animation: "fadeInUp 0.6s ease-out 0.3s forwards", opacity: 0 }}>
+        <div className="mt-8" style={{ animation: "fadeInUp 0.6s ease-out 0.3s forwards", opacity: 0 }}>
           <a
             href="#contact"
             className="inline-block px-5 py-2 rounded-lg border-2 border-yellow-400 text-yellow-400 font-semibold hover:bg-yellow-400 hover:text-gray-900 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-400/50"
@@ -40,7 +40,7 @@ export default function Hero() {
       </div>
 
       {/* RIGHT portrait + social stack */}
-      <div className="relative flex items-center justify-end animate-fade-in-up" style={{ animation: "slideInRight 0.6s ease-out 0.2s forwards", opacity: 0 }}>
+      <div className="relative flex items-center justify-end" style={{ animation: "slideInRight 0.6s ease-out 0.2s forwards", opacity: 0 }}>
         {/* portrait container */}
         <div className="w-full max-w-[420px] h-[420px] rounded-l-2xl overflow-hidden shadow-soft-card relative">
           <img
