@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebookF, FaTwitter, FaLinkedinIn, FaCheckCircle } from "react-icons/fa";
 import { SiWhatsapp } from "react-icons/si";
 import emailjs from '@emailjs/browser';
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const socialLinks = [
   { id: "facebook", href: "https://www.facebook.com/babalesh.kumar.iitg/", label: "Facebook", icon: <FaFacebookF /> },
@@ -11,6 +12,7 @@ const socialLinks = [
 ];
 
 export default function Contact() {
+  const ref = useScrollAnimation();
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -55,11 +57,11 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-12">
+    <section id="contact" className="py-12" ref={ref} style={{ opacity: 0 }}>
       <h2 className="text-4xl font-bold text-center mb-12 animate-fade-in-up" style={{ animation: "fadeInUp 0.6s ease-out forwards", opacity: 0 }}>Contact Me</h2>
 
       {/* Contact Form */}
-      <div className="max-w-5xl mx-auto bg-gray-800 rounded-lg p-8 shadow-lg mb-12" style={{ animation: "fadeInUp 0.6s ease-out 0.1s forwards", opacity: 0 }}>
+      <div className="max-w-6xl mx-auto bg-gray-800 rounded-lg p-8 shadow-lg mb-12" style={{ animation: "fadeInUp 0.6s ease-out 0.1s forwards", opacity: 0 }}>
         <h3 className="text-2xl font-bold mb-6 text-gray-100">Send Me a Message</h3>
         
         {success && (
@@ -130,7 +132,7 @@ export default function Contact() {
       </div>
 
       {/* Contact Info Cards */}
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           <div className="bg-gray-800 px-6 py-4 rounded-md flex items-center gap-4 hover:bg-gray-700 transition-colors" style={{ animation: "fadeInUp 0.6s ease-out 0.2s forwards", opacity: 0 }}>
             <FaEnvelope className="text-yellow-400 text-xl" />

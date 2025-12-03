@@ -43,7 +43,7 @@ export default function Experience() {
     <section id="experience" className="py-14" ref={ref} style={{ opacity: 0 }}>
       <h2 className="text-4xl font-bold mb-10 animate-fade-in-up" style={{ animation: "fadeInUp 0.6s ease-out forwards", opacity: 0 }}>Experience</h2>
 
-      <div className="relative">
+      <div className="max-w-6xl mx-auto relative">
         {/* vertical timeline line */}
         <div className="hidden md:block absolute left-12 top-0 bottom-0 w-px bg-gray-600" />
 
