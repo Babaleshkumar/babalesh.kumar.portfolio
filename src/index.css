@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  background-color: #1f2124;
+  background-color: #33343d;
   color-scheme: dark;
 }
 
@@ -225,4 +225,22 @@ section[id], [data-section] {
     scroll-margin-top: calc(var(--site-header-height) + 8px);
   }
 }
+
+/* Custom color overrides */
+.bg-gray-800 {
+  background-color: #3c3e42 !important;
+}
+
+.bg-gray-900 {
+  background-color: #3c3e42 !important;
+}
+
+.hover\:bg-gray-700:hover {
+  background-color: #4a4d52 !important;
+}
+
+.hover\:bg-gray-900:hover {
+  background-color: #3c3e42 !important;
+}
+
 

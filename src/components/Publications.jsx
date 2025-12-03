@@ -24,7 +24,7 @@ export default function Publications() {
     <section id="publications" className="py-16" ref={ref} style={{ opacity: 0 }}>
       <h2 className="text-4xl font-bold text-center mb-12 animate-fade-in-up" style={{ animation: "fadeInUp 0.6s ease-out forwards", opacity: 0 }}>Publications</h2>
 
-      <div className="max-w-4xl mx-auto space-y-8">
+      <div className="max-w-5xl mx-auto space-y-8">
         {publicationsData.map((pub, idx) => (
           <div
             key={pub.id}

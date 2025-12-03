@@ -42,7 +42,7 @@ export default function Hero() {
       {/* RIGHT portrait + social stack */}
       <div className="relative flex items-center justify-end" style={{ animation: "slideInRight 0.6s ease-out 0.2s forwards", opacity: 0 }}>
         {/* portrait container */}
-        <div className="w-full max-w-[420px] h-[420px] rounded-l-2xl overflow-hidden shadow-soft-card relative">
+        <div className="w-full max-w-[420px] h-[420px] rounded-l-2xl overflow-hidden relative">
           <img
             src="/hero-photo.png"
             alt="portrait"
