@@ -18,7 +18,7 @@ export default function Portfolio() {
   const displayedProjects = showMore ? projects : projects.slice(0, itemsPerPage);
   return (
     <section id="portfolio" className="py-16" ref={ref} style={{ opacity: 0 }}>
-      <h2 className="text-4xl font-bold text-center mb-8">Portfolio</h2>
+      <h2 className="text-4xl font-bold text-center mb-8">Projects</h2>
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
         {displayedProjects.map((p, idx) => (
