@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const projects = [
-  { id: 1, title: "Project One", img: "/portfolio-1.jpg", subtitle: "Web Design", github: "https://github.com/yourprofile/project-one" },
-  { id: 2, title: "Amazon Scrapper", img: "/portfolio-2.jpg", subtitle: "Python", github: "https://github.com/yourprofile/amazon-scrapper" },
-  { id: 3, title: "Project Three", img: "/portfolio-3.jpg", subtitle: "Architecture", github: "https://github.com/yourprofile/project-three" },
-  { id: 4, title: "Project Four", img: "/portfolio-4.jpg", subtitle: "Visuals", github: "https://github.com/yourprofile/project-four" },
-  { id: 5, title: "Project Five", img: "/portfolio-5.jpg", subtitle: "UI/UX", github: "https://github.com/yourprofile/project-five" },
-  { id: 6, title: "Project Six", img: "/portfolio-6.jpg", subtitle: "Automation", github: "https://github.com/yourprofile/project-six" },
-  { id: 7, title: "Project Seven", img: "/portfolio-1.jpg", subtitle: "Design", github: "https://github.com/yourprofile/project-seven" },
-  { id: 8, title: "Project Eight", img: "/portfolio-2.jpg", subtitle: "Development", github: "https://github.com/yourprofile/project-eight" },
-  { id: 9, title: "Project Nine", img: "/portfolio-3.jpg", subtitle: "Mobile App", github: "https://github.com/yourprofile/project-nine" },
+  { id: 1, title: "CODESOFT Internship", img: "/portfolio-1.jpg", subtitle: "Web Design", github: "https://github.com/Babaleshkumar/CODSOFT" },
+  { id: 2, title: "Numerical Methods", img: "/portfolio-2.jpg", subtitle: "IITG Lab", github: "https://github.com/Babaleshkumar/Numerical-Methods-" },
+  { id: 3, title: "Genetic Algorithm", img: "/portfolio-3.jpg", subtitle: "Soft Computing", github: "https://github.com/Babaleshkumar/Genetic-Algorithm" },
+  { id: 4, title: "Tic-Tac-Toe", img: "/portfolio-4.jpg", subtitle: "Java Project", github: "https://github.com/Babaleshkumar/Tic-Tac-Toe-Game" },
+  { id: 5, title: "2D Lid Driven Cavity", img: "/portfolio-5.jpg", subtitle: "Lid Driven Cavity", github: "https://github.com/Babaleshkumar/2-D-Lid-driven-Cavity" },
+  { id: 6, title: "RAG pdf search", img: "/portfolio-6.jpg", subtitle: "RAG pdf search", github: "https://github.com/Babaleshkumar/rag-application-pdf-search" },
+  
 ];
 
 export default function Portfolio() {
