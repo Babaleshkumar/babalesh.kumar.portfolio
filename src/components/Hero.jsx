@@ -42,12 +42,14 @@ export default function Hero() {
       {/* RIGHT portrait + social stack */}
       <div className="relative flex items-center justify-end" style={{ animation: "slideInRight 0.6s ease-out 0.2s forwards", opacity: 0 }}>
         {/* portrait container */}
-        <div className="w-full max-w-[420px] h-[420px] rounded-l-2xl overflow-hidden relative">
+        <div className="w-full max-w-[380px] h-[470px] rounded-l-2xl overflow-hidden relative">
           <img
             src="/hero-photo.png"
             alt="portrait"
-            className="block w-full h-full object-cover grayscale contrast-[1.15] brightness-[0.85]"
+            className="block w-full h-full object-cover object-center grayscale contrast-[1.15] brightness-[0.85]"
           />
+          {/* Gradient overlay at bottom to hide sharp cut */}
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-[#33343d] to-transparent pointer-events-none" />
         </div>
 
         {/* social vertical stack: positioned to the right of portrait */}
