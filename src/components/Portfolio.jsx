@@ -57,16 +57,16 @@ export default function Portfolio() {
               className="absolute inset-0 flex items-center justify-center"
               style={{
                 zIndex: 10,
-                backgroundColor: "rgba(0,0,0,0.18)", // subtle dark overlay
+                backgroundColor: "rgba(0,0,0,0.4)", // darker overlay for text visibility
                 transition: "background-color .25s ease"
               }}
             >
-              {/* inner content area; starts hidden & fades in on hover */}
+              {/* inner content area; visible by default, enhanced on hover */}
               <div
                 className="text-center px-4"
                 style={{
-                  opacity: 0,
-                  transform: "translateY(6px)",
+                  opacity: 1,
+                  transform: "translateY(0)",
                   transition: "opacity .25s ease, transform .25s ease"
                 }}
               >
@@ -83,14 +83,14 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* Hover behavior controlled by a small scriptable class toggle using CSS selectors.
-                We add an extra element to handle the fade-in so the overlay doesn't hide the image. */}
+            {/* Hover behavior: image scales up, overlay slightly darkens */}
             <style>{`
-              .group:hover > img { transform: scale(1.05); }
-              .group:hover > div.absolute > div { opacity: 1 !important; transform: translateY(0) !important; }
+              .group:hover > img { transform: scale(1.1); }
+              .group:hover > div.absolute { background-color: rgba(0,0,0,0.6) !important; }
               /* on very narrow screens, lower the overlay darkness */
               @media (max-width: 640px) {
-                .group > div.absolute { background-color: rgba(0,0,0,0.12); }
+                .group > div.absolute { background-color: rgba(0,0,0,0.35); }
+                .group:hover > div.absolute { background-color: rgba(0,0,0,0.5) !important; }
               }
             `}</style>
           </div>
