@@ -170,13 +170,35 @@ export default function Contact() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={link.label}
                 className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-700 hover:bg-yellow-400 hover:text-gray-900 transition-colors duration-200 text-white shadow"
+                style={{ outline: 'none', cursor: 'pointer' }}
               >
-                <span className="text-lg">{link.icon}</span>
+                <span className="text-lg" style={{ pointerEvents: 'none' }}>{link.icon}</span>
               </a>
               {/* Tooltip on hover */}
-              <div className="absolute bottom-full mb-2 px-3 py-1 bg-yellow-400 text-gray-900 text-sm font-medium rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none flex items-center gap-2">
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '100%',
+                  left: '50%',
+                  marginBottom: '8px',
+                  transform: 'translateX(-50%)',
+                  minWidth: 'max-content',
+                  padding: '6px 12px',
+                  backgroundColor: '#FBBF24',
+                  color: '#111827',
+                  fontSize: '14px',
+                  fontWeight: '500',
+                  borderRadius: '6px',
+                  pointerEvents: 'none',
+                  zIndex: 99999,
+                  transition: 'opacity 200ms ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                }}
+                className="opacity-0 group-hover:opacity-100"
+              >
                 {link.icon}
                 <span>{link.label}</span>
               </div>

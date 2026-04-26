@@ -243,4 +243,55 @@ section[id], [data-section] {
   background-color: #3c3e42 !important;
 }
 
+/* Suppress browser default tooltips and focus styles */
+a {
+  outline: none !important;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+a:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+a:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove focus ring on all elements */
+*:focus {
+  outline: none !important;
+}
+
+*:focus-visible {
+  outline: none !important;
+}
+
+/* Hide browser default tooltips by removing all outline and shadow effects */
+a[href]:hover,
+a[href]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+/* Force hide browser tooltips - critical for preventing default tooltip display */
+::before,
+::after {
+  box-shadow: none !important;
+}
+
+/* Suppress link title tooltips */
+a[href] {
+  text-decoration: none !important;
+}
+
+/* Override browser default tooltip styling */
+::-webkit-tooltip,
+::-moz-tooltip {
+  display: none !important;
+}
+
 

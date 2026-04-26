@@ -26,7 +26,7 @@ export default function Hero() {
         </h1>
 
         <p className="mt-4 text-gray-300 max-w-xl" style={{ animation: "fadeInUp 0.6s ease-out 0.2s forwards", opacity: 0 }}>
-          M.Tech in Aerodynamics & Propulsion | Python Developer | TechLead at HCLTech
+          M.Tech IIT Guwahati | GenAI Developer | Tech Lead at HCLTech
         </p>
 
         <div className="mt-8" style={{ animation: "fadeInUp 0.6s ease-out 0.3s forwards", opacity: 0 }}>
@@ -69,14 +69,35 @@ export default function Hero() {
                   href={l.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={l.label}
                   className="w-9 h-9 rounded-full flex items-center justify-center bg-[#111214]/50 hover:bg-yellow-400 hover:text-gray-900 transition-colors duration-200 text-white shadow"
-                  title={l.label}
+                  style={{ outline: 'none', cursor: 'pointer' }}
                 >
-                  <span className="text-sm">{l.icon}</span>
+                  <span className="text-sm" style={{ pointerEvents: 'none' }}>{l.icon}</span>
                 </a>
                 {/* Tooltip on hover */}
-                <div className="absolute left-full ml-3 px-3 py-1 bg-yellow-400 text-gray-900 text-sm font-medium rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none flex items-center gap-2">
+                <div
+                  style={{
+                    position: 'absolute',
+                    left: '100%',
+                    marginLeft: '12px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    minWidth: 'max-content',
+                    padding: '6px 12px',
+                    backgroundColor: '#FBBF24',
+                    color: '#111827',
+                    fontSize: '14px',
+                    fontWeight: '500',
+                    borderRadius: '6px',
+                    pointerEvents: 'none',
+                    zIndex: 99999,
+                    transition: 'opacity 200ms ease',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                  }}
+                  className="opacity-0 group-hover:opacity-100"
+                >
                   {l.icon}
                   <span>{l.label}</span>
                 </div>
@@ -93,11 +114,10 @@ export default function Hero() {
               href={l.href}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={l.label}
               className="w-9 h-9 rounded-full flex items-center justify-center bg-[#111214]/50 hover:bg-yellow-400 hover:text-gray-900 transition-colors duration-200 text-white shadow"
-              title={l.label}
+              style={{ outline: 'none', cursor: 'pointer' }}
             >
-              <span className="text-sm">{l.icon}</span>
+              <span className="text-sm" style={{ pointerEvents: 'none' }}>{l.icon}</span>
             </a>
           ))}
         </div>
