@@ -134,29 +134,46 @@ export default function Contact() {
       {/* Contact Info Cards */}
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-          <div className="bg-gray-800 px-6 py-4 rounded-md flex items-center gap-4 hover:bg-gray-700 transition-colors" style={{ animation: "fadeInUp 0.6s ease-out 0.2s forwards", opacity: 0 }}>
-            <FaEnvelope className="text-yellow-400 text-xl" />
+          {/* Email Card */}
+          <a
+            href="mailto:babaleshkumar97iitg@gmail.com"
+            className="bg-gray-800 px-6 py-4 rounded-md flex items-center gap-4 hover:bg-yellow-400 transition-all duration-300 cursor-pointer group transform hover:scale-110 hover:-translate-y-2 shadow-md hover:shadow-2xl hover:shadow-yellow-400/30"
+            style={{ animation: "fadeInUp 0.6s ease-out 0.2s forwards", opacity: 0 }}
+          >
+            <FaEnvelope className="text-yellow-400 group-hover:text-gray-900 text-xl transition-colors duration-300" />
             <div>
-              <div className="text-gray-400 text-sm">Email</div>
-              <div className="text-gray-200 font-medium">babaleshkumar97iitg@gmail.com</div>
+              <div className="text-gray-400 group-hover:text-gray-900 text-sm transition-colors duration-300">Email</div>
+              <div className="text-gray-200 group-hover:text-gray-900 font-medium transition-colors duration-300">babaleshkumar97iitg@gmail.com</div>
             </div>
-          </div>
+          </a>
 
-          <div className="bg-gray-800 px-6 py-4 rounded-md flex items-center gap-4 hover:bg-gray-700 transition-colors" style={{ animation: "fadeInUp 0.6s ease-out 0.3s forwards", opacity: 0 }}>
-            <FaPhone className="text-yellow-400 text-xl" />
+          {/* Phone Card */}
+          <a
+            href="tel:+919457754711"
+            className="bg-gray-800 px-6 py-4 rounded-md flex items-center gap-4 hover:bg-yellow-400 transition-all duration-300 cursor-pointer group transform hover:scale-110 hover:-translate-y-2 shadow-md hover:shadow-2xl hover:shadow-yellow-400/30"
+            style={{ animation: "fadeInUp 0.6s ease-out 0.3s forwards", opacity: 0 }}
+          >
+            <FaPhone className="text-yellow-400 group-hover:text-gray-900 text-xl transition-colors duration-300" />
             <div>
-              <div className="text-gray-400 text-sm">Phone</div>
-              <div className="text-gray-200 font-medium">+91-9457754711</div>
+              <div className="text-gray-400 group-hover:text-gray-900 text-sm transition-colors duration-300">Phone</div>
+              <div className="text-gray-200 group-hover:text-gray-900 font-medium transition-colors duration-300">+91-9457754711</div>
             </div>
-          </div>
+          </a>
 
-          <div className="bg-gray-800 px-6 py-4 rounded-md flex items-center gap-4 hover:bg-gray-700 transition-colors" style={{ animation: "fadeInUp 0.6s ease-out 0.4s forwards", opacity: 0 }}>
-            <FaMapMarkerAlt className="text-yellow-400 text-xl" />
+          {/* Location Card */}
+          <a
+            href="https://www.google.com/maps/search/Jalesar,+Etah,+Uttar+Pradesh,+India"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gray-800 px-6 py-4 rounded-md flex items-center gap-4 hover:bg-yellow-400 transition-all duration-300 cursor-pointer group transform hover:scale-110 hover:-translate-y-2 shadow-md hover:shadow-2xl hover:shadow-yellow-400/30"
+            style={{ animation: "fadeInUp 0.6s ease-out 0.4s forwards", opacity: 0 }}
+          >
+            <FaMapMarkerAlt className="text-yellow-400 group-hover:text-gray-900 text-xl transition-colors duration-300" />
             <div>
-              <div className="text-gray-400 text-sm">Location</div>
-              <div className="text-gray-200 font-medium">Uttar Pradesh, India</div>
+              <div className="text-gray-400 group-hover:text-gray-900 text-sm transition-colors duration-300">Location</div>
+              <div className="text-gray-200 group-hover:text-gray-900 font-medium transition-colors duration-300">Jalesar, Etah, UP</div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
 
