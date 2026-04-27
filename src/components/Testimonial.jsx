@@ -5,7 +5,7 @@ export default function Testimonial() {
     <section id="testimonial" className="py-16 bg-transparent">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div>
-          <h2 className="text-4xl font-bold mb-6">Testimonial</h2>
+          <h2 className="text-4xl font-bold mb-6 gradient-text">Testimonial</h2>
 
           <div className="flex items-start gap-4">
             <div className="w-1/12">

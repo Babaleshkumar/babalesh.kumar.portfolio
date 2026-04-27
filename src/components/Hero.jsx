@@ -1,6 +1,8 @@
 import React from "react";
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub, FaEnvelope, FaLinkedinIn } from "react-icons/fa";
 import { SiWhatsapp } from "react-icons/si";
+import { motion } from "framer-motion";
+import TypewriterText from "./TypewriterText";
 
 /**
  * Update the `links` array below with your real profile URLs.
@@ -8,120 +10,146 @@ import { SiWhatsapp } from "react-icons/si";
  */
 
 const links = [
-  { id: "facebook", href: "https://www.facebook.com/babalesh.kumar.iitg/", label: "Facebook", icon: <FaFacebookF /> },
-    { id: "twitter", href: "https://x.com/BABALESH1", label: "Twitter", icon: <FaTwitter /> },
-    { id: "linkedin", href: "https://www.linkedin.com/in/babalesh-kumar-369887225/", label: "LinkedIn", icon: <FaLinkedinIn /> },
-    { id: "whatsapp", href: "https://wa.me/9457754711", label: "WhatsApp", icon: <SiWhatsapp /> }
+  { id: "github", href: "https://github.com/Babaleshkumar", label: "GitHub", icon: <FaGithub /> },
+  { id: "email", href: "mailto:babaleshkumar97iitg@gmail.com", label: "Email", icon: <FaEnvelope /> },
+  { id: "linkedin", href: "https://www.linkedin.com/in/babalesh-kumar-369887225/", label: "LinkedIn", icon: <FaLinkedinIn /> },
+  { id: "whatsapp", href: "https://wa.me/9457754711", label: "WhatsApp", icon: <SiWhatsapp /> }
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, x: 50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
+
+const buttonHoverVariants = {
+  hover: {
+    scale: 1.05,
+    boxShadow: "0 20px 25px -5px rgba(250, 204, 21, 0.3)",
+    transition: { duration: 0.3 },
+  },
+  tap: { scale: 0.95 },
+};
 
 export default function Hero() {
   return (
-    <section className="hero-wrap grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-12">
+    <motion.section 
+      className="hero-wrap grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-12"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       {/* LEFT content */}
-      <div className="pr-6 md:pr-12">
-        <p className="text-sm text-gray-400 mb-4" style={{ animation: "fadeInUp 0.6s ease-out forwards" }}>I'M</p>
-        <h1 className="text-5xl md:text-6xl font-display font-bold leading-tight" style={{ animation: "fadeInUp 0.6s ease-out 0.1s forwards", opacity: 0 }}>
-          <span className="text-gray-300">Babalesh </span>
-          <span className="text-yellow-400">Kumar</span>
-        </h1>
+      <motion.div className="pr-6 md:pr-12" variants={itemVariants}>
+        <motion.p 
+          className="text-sm text-gray-400 mb-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+        >
+          I'M
+        </motion.p>
+        
+        <motion.h1 
+          className="text-5xl md:text-6xl font-display font-bold leading-tight bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+        >
+          Babalesh Kumar
+        </motion.h1>
 
-        <p className="mt-4 text-gray-300 max-w-xl" style={{ animation: "fadeInUp 0.6s ease-out 0.2s forwards", opacity: 0 }}>
-          M.Tech IIT Guwahati | GenAI Developer | Tech Lead at HCLTech
-        </p>
+        <TypewriterText />
 
-        <div className="mt-8" style={{ animation: "fadeInUp 0.6s ease-out 0.3s forwards", opacity: 0 }}>
-          <a
+        <motion.div 
+          className="mt-8"
+          variants={itemVariants}
+        >
+          <motion.a
             href="#contact"
-            className="inline-block px-5 py-2 rounded-lg border-2 border-yellow-400 text-yellow-400 font-semibold hover:bg-yellow-400 hover:text-gray-900 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-400/50"
+            className="inline-block px-6 py-3 rounded-lg border-2 border-yellow-400 text-yellow-400 font-semibold hover:text-gray-900 transition-all duration-300 bg-gradient-to-r from-transparent to-transparent hover:from-yellow-400 hover:to-yellow-500"
+            variants={buttonHoverVariants}
+            whileHover="hover"
+            whileTap="tap"
           >
             Contact Me
-          </a>
-        </div>
-      </div>
+          </motion.a>
+        </motion.div>
+
+        {/* Social Links */}
+        <motion.div 
+          className="mt-8 flex gap-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+        >
+          {links.map((link, idx) => (
+            <motion.a
+              key={link.id}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-lg bg-gray-800 text-gray-300 hover:text-yellow-400 hover:bg-gray-700 transition-all"
+              whileHover={{ scale: 1.1, y: -5 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ delay: 1.2 + idx * 0.1 }}
+            >
+              {link.icon}
+            </motion.a>
+          ))}
+        </motion.div>
+      </motion.div>
 
       {/* RIGHT portrait + social stack */}
-      <div className="relative flex items-center justify-end" style={{ animation: "slideInRight 0.6s ease-out 0.2s forwards", opacity: 0 }}>
+      <motion.div 
+        className="relative flex items-center justify-end"
+        variants={imageVariants}
+      >
         {/* portrait container */}
-        <div className="w-full max-w-[380px] h-[470px] rounded-l-2xl overflow-hidden relative">
+        <div className="w-full max-w-[380px] h-[470px] rounded-l-2xl overflow-hidden relative group">
           <img
             src="/hero-photo.png"
             alt="portrait"
-            className="block w-full h-full object-cover object-center grayscale contrast-[1.15] brightness-[0.85]"
+            className="block w-full h-full object-cover object-center grayscale contrast-[1.15] brightness-[0.85] group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-500"
           />
           {/* Gradient overlay at bottom to hide sharp cut */}
           <div className="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-[#33343d] to-transparent pointer-events-none" />
-        </div>
-
-        {/* social vertical stack: positioned to the right of portrait */}
-        <div className="hidden md:flex flex-col items-center ml-6 relative z-20">
-          {/* gold accent vertical line */}
-          <div
-            className="w-0.5 h-36 mb-6"
-            style={{ background: "linear-gradient(180deg, rgba(224,178,91,1), rgba(224,178,91,0.45))" }}
-            aria-hidden="true"
-          />
-
-          {/* icons */}
-          <div className="flex flex-col gap-4">
-            {links.map((l) => (
-              <div key={l.id} className="relative group">
-                <a
-                  href={l.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full flex items-center justify-center bg-[#111214]/50 hover:bg-yellow-400 hover:text-gray-900 transition-colors duration-200 text-white shadow"
-                  style={{ outline: 'none', cursor: 'pointer' }}
-                >
-                  <span className="text-sm" style={{ pointerEvents: 'none' }}>{l.icon}</span>
-                </a>
-                {/* Tooltip on hover */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    left: '100%',
-                    marginLeft: '12px',
-                    top: '50%',
-                    transform: 'translateY(-50%)',
-                    minWidth: 'max-content',
-                    padding: '6px 12px',
-                    backgroundColor: '#FBBF24',
-                    color: '#111827',
-                    fontSize: '14px',
-                    fontWeight: '500',
-                    borderRadius: '6px',
-                    pointerEvents: 'none',
-                    zIndex: 99999,
-                    transition: 'opacity 200ms ease',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                  }}
-                  className="opacity-0 group-hover:opacity-100"
-                >
-                  {l.icon}
-                  <span>{l.label}</span>
-                </div>
-              </div>
-            ))}
+          
+          {/* Animated glow border */}
+          <div className="absolute inset-0 rounded-l-2xl bg-gradient-to-r from-blue-500 to-purple-500 p-[2px] opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none">
+            <div className="absolute inset-[2px] rounded-l-2xl bg-transparent" />
           </div>
         </div>
-
-        {/* For small screens: show icons below portrait (optional) */}
-        <div className="md:hidden absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-3 z-30">
-          {links.map((l) => (
-            <a
-              key={l.id + "-sm"}
-              href={l.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full flex items-center justify-center bg-[#111214]/50 hover:bg-yellow-400 hover:text-gray-900 transition-colors duration-200 text-white shadow"
-              style={{ outline: 'none', cursor: 'pointer' }}
-            >
-              <span className="text-sm" style={{ pointerEvents: 'none' }}>{l.icon}</span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }

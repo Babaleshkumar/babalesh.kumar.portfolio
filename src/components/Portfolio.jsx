@@ -1,110 +1,127 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
-
-const projects = [
-  { id: 1, title: "CODESOFT Internship", img: "/portfolio-1.jpg", subtitle: "Web Design", github: "https://github.com/Babaleshkumar/CODSOFT" },
-  { id: 2, title: "Numerical Methods", img: "/portfolio-2.jpg", subtitle: "IITG Lab", github: "https://github.com/Babaleshkumar/Numerical-Methods-" },
-  { id: 3, title: "Genetic Algorithm", img: "/portfolio-3.jpg", subtitle: "Soft Computing", github: "https://github.com/Babaleshkumar/Genetic-Algorithm" },
-  { id: 4, title: "Tic-Tac-Toe", img: "/portfolio-4.jpg", subtitle: "Java Project", github: "https://github.com/Babaleshkumar/Tic-Tac-Toe-Game" },
-  { id: 5, title: "2D Lid Driven Cavity", img: "/portfolio-5.jpg", subtitle: "Lid Driven Cavity", github: "https://github.com/Babaleshkumar/2-D-Lid-driven-Cavity" },
-  { id: 6, title: "RAG pdf search", img: "/portfolio-6.jpg", subtitle: "RAG pdf search", github: "https://github.com/Babaleshkumar/rag-application-pdf-search" },
-  
-];
+import ProjectCard from "./ProjectCard";
+import { projects } from "../data/portfolioData";
 
 export default function Portfolio() {
-  const [showMore, setShowMore] = useState(false);
+  const [displayedCount, setDisplayedCount] = useState(6);
   const ref = useScrollAnimation();
-  const itemsPerPage = 6;
-  const displayedProjects = showMore ? projects : projects.slice(0, itemsPerPage);
+
+  const displayedProjects = projects.slice(0, displayedCount);
+  const hasMore = displayedCount < projects.length;
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const buttonVariants = {
+    hover: { scale: 1.05, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.3)" },
+    tap: { scale: 0.95 },
+  };
+
   return (
-    <section id="portfolio" className="py-16" ref={ref} style={{ opacity: 0 }}>
-      <h2 className="text-4xl font-bold text-center mb-8">Projects</h2>
+    <section id="portfolio" className="py-20" ref={ref}>
+      <motion.div
+        variants={titleVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="text-center mb-12"
+      >
+        <h2 className="text-5xl font-bold mb-4 relative inline-block">
+          <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            Featured Projects
+          </span>
+          <motion.div
+            className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          />
+        </h2>
+        <p className="text-gray-400 text-lg mt-4">
+          Explore my recent work and technical achievements
+        </p>
+      </motion.div>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
-        {displayedProjects.map((p, idx) => (
-          <div
-            key={p.id}
-            className="relative group overflow-hidden rounded-sm"
-            style={{ minHeight: 1, animation: `fadeInUp 0.6s ease-out ${idx * 0.08}s forwards`, opacity: 0 }}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="max-w-6xl mx-auto"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {displayedProjects.map((project, idx) => (
+            <ProjectCard key={project.id} project={project} index={idx} />
+          ))}
+        </div>
+
+        {/* Load More Button */}
+        {hasMore && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="flex justify-center mt-12"
           >
-            {/* IMPORTANT: image forced to display as block and zIndex 0 */}
-            <img
-              src={p.img}
-              alt={p.title}
-              loading="eager"
-              style={{
-                display: "block",
-                width: "100%",
-                height: "14rem", // tailwind h-56
-                objectFit: "cover",
-                transformOrigin: "center",
-                zIndex: 0,
-                // debug border (remove later)
-                border: "1px solid rgba(255,255,255,0.03)",
-                backgroundColor: "#2b2b2b"
-              }}
-              className="group-hover:scale-110 transition-transform duration-500 ease-out"
-              onError={(e) => {
-                // fallback to a working placeholder so tiles never stay black
-                e.currentTarget.onerror = null;
-                e.currentTarget.src = `https://picsum.photos/800/600?random=${p.id}`;
-                e.currentTarget.style.objectFit = "cover";
-              }}
-            />
-
-            {/* overlay: use inline rgba style to force correct opacity (avoids tailwind class issues) */}
-            <div
-              className="absolute inset-0 flex items-center justify-center"
-              style={{
-                zIndex: 10,
-                backgroundColor: "rgba(0,0,0,0.4)", // darker overlay for text visibility
-                transition: "background-color .25s ease"
-              }}
+            <motion.button
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              onClick={() => setDisplayedCount((prev) => prev + 3)}
+              className="relative px-8 py-3 rounded-lg font-semibold text-lg group overflow-hidden"
             >
-              {/* inner content area; visible by default, enhanced on hover */}
-              <div
-                className="text-center px-4"
-                style={{
-                  opacity: 1,
-                  transform: "translateY(0)",
-                  transition: "opacity .25s ease, transform .25s ease"
-                }}
-              >
-                <h3 className="text-white text-lg font-semibold">{p.title}</h3>
-                <p className="text-gray-200 text-sm mt-1">{p.subtitle}</p>
-                <a 
-                  href={p.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-block px-4 py-2 bg-yellow-400 text-gray-900 rounded-md text-sm hover:bg-yellow-500 transition-colors"
+              {/* Gradient background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-lg" />
+
+              {/* Animated background */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 rounded-lg"
+                animate={{ x: ["100%", "-100%"] }}
+                transition={{ duration: 3, repeat: Infinity, repeatType: "loop" }}
+              />
+
+              {/* Text */}
+              <span className="relative text-white flex items-center justify-center gap-2">
+                View More Projects
+                <motion.span
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
                 >
-                  See More
-                </a>
-              </div>
-            </div>
+                  →
+                </motion.span>
+              </span>
+            </motion.button>
+          </motion.div>
+        )}
+      </motion.div>
 
-            {/* Hover behavior: image scales up, overlay slightly darkens */}
-            <style>{`
-              .group:hover > img { transform: scale(1.1); }
-              .group:hover > div.absolute { background-color: rgba(0,0,0,0.6) !important; }
-              /* on very narrow screens, lower the overlay darkness */
-              @media (max-width: 640px) {
-                .group > div.absolute { background-color: rgba(0,0,0,0.35); }
-                .group:hover > div.absolute { background-color: rgba(0,0,0,0.5) !important; }
-              }
-            `}</style>
-          </div>
-        ))}
-      </div>
-
-      <div className="flex justify-center mt-8">
-        <button 
-          onClick={() => setShowMore(!showMore)}
-          className="px-6 py-2 rounded-md bg-yellow-400 text-gray-900 font-semibold hover:bg-yellow-500 transition-colors"
-        >
-          {showMore ? "Show Less" : "View More"}
-        </button>
-      </div>
+      {/* Decorative elements */}
+      <div className="absolute top-20 right-10 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl pointer-events-none opacity-0 lg:opacity-100" />
+      <div className="absolute bottom-20 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none opacity-0 lg:opacity-100" />
     </section>
   );
 }
