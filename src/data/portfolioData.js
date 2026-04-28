@@ -153,6 +153,29 @@ export const projects = [
   }
 ];
 
+export const certifications = [
+  {
+    id: 1,
+    title: "Github Copilot",
+    issuer: "Microsoft",
+    issued: "Feb 2026",
+    expires: "Feb 2028",
+    credentialId: "630A98F601A13EB5",
+    gradient: "from-gray-700 to-gray-900",
+    icon: "🤖"
+  },
+  {
+    id: 2,
+    title: "AWS Certified Cloud Practitioner",
+    issuer: "Amazon Web Services (AWS)",
+    issued: "Jun 2024",
+    expires: "Jun 2027",
+    credentialId: "AWS04464505",
+    gradient: "from-orange-500 to-yellow-500",
+    icon: "☁️"
+  }
+];
+
 export const contact = {
   email: "your.email@example.com",
   github: "https://github.com/Babaleshkumar",

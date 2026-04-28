@@ -7,6 +7,7 @@ import Portfolio from "./components/Portfolio";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Publications from "./components/Publications";
+import Certifications from "./components/Certifications";
 import Contact from "./components/Contact";
 import StarsBackground from "./components/StarsBackground";
 
@@ -24,6 +25,7 @@ export default function App() {
           <Education />
           <Experience />
           <Publications />
+          <Certifications />
           <Contact />
         </main>
       </div>
