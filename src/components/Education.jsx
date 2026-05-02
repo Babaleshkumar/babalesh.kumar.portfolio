@@ -27,7 +27,7 @@ const educationData = [
     location: "Guwahati, Assam",
     description: "Advanced 2-year program specializing in Aerodynamics, Propulsion Systems, and Computational Fluid Dynamics.",
     details: "CGPA: 8.05",
-    highlights: ["CFD Analysis", "Aerodynamics", "Propulsion", "ANSYS"],
+    highlights: ["Soft Computing","CFD Analysis", "Aerodynamics", "Propulsion"],
     gradient: "from-purple-500 to-pink-500"
   }
 ];
