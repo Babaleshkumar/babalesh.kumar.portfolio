@@ -161,7 +161,7 @@ export const certifications = [
     issued: "Feb 2026",
     expires: "Feb 2028",
     credentialId: "630A98F601A13EB5",
-    gradient: "from-gray-700 to-gray-900",
+    gradient: "from-blue-500 to-cyan-500",
     icon: "🤖"
   },
   {
@@ -171,7 +171,7 @@ export const certifications = [
     issued: "Jun 2024",
     expires: "Jun 2027",
     credentialId: "AWS04464505",
-    gradient: "from-orange-500 to-yellow-500",
+    gradient: "from-purple-500 to-pink-500",
     icon: "☁️"
   }
 ];
