@@ -53,7 +53,7 @@ export const projects = [
   {
     id: 1,
     title: "Store Support Agent",
-    duration: "2024 – Present",
+    duration: "2025",
     category: "AI/ML",
     description: "Built a multi-agent AI order support system using PyVegas, LangGraph, and LangChain with a Supervisor routing Slack messages to specialized agents.",
     highlights: [
@@ -85,7 +85,7 @@ export const projects = [
   {
     id: 3,
     title: "Ops Report UI",
-    duration: "2024",
+    duration: "2026",
     category: "Full Stack Development",
     description: "Built a full-stack Ops Reporting tool with React, Python/Flask, and Oracle DB for automated report generation and real-time preview.",
     highlights: [

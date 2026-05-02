@@ -135,19 +135,14 @@ export default function Hero() {
         variants={imageVariants}
       >
         {/* portrait container */}
-        <div className="w-full max-w-[380px] h-[470px] rounded-l-2xl overflow-hidden relative group">
+        <div className="w-full max-w-[380px] h-[470px] rounded-l-2xl overflow-hidden relative">
           <img
             src="/hero-photo.png"
             alt="portrait"
-            className="block w-full h-full object-cover object-center grayscale contrast-[1.15] brightness-[0.85] group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-500"
+            className="block w-full h-full object-cover object-center grayscale contrast-[1.15] brightness-[0.85]"
           />
-          {/* Gradient overlay at bottom to hide sharp cut */}
-          <div className="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-[#33343d] to-transparent pointer-events-none" />
-          
-          {/* Animated glow border */}
-          <div className="absolute inset-0 rounded-l-2xl bg-gradient-to-r from-blue-500 to-purple-500 p-[2px] opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none">
-            <div className="absolute inset-[2px] rounded-l-2xl bg-transparent" />
-          </div>
+          {/* Smooth fade effect at bottom */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-gray-950 via-gray-950/50 to-transparent pointer-events-none rounded-l-2xl" />
         </div>
       </motion.div>
     </motion.section>
